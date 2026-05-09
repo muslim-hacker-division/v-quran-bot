@@ -6,7 +6,7 @@ import os
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes
 
-TOKEN = "BOT_TELEGRAM_TOKEN"
+TOKEN = "TELEGRAM_TOKEN"
 
 # Baca Database dari folder data/
 def load_data():
