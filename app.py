@@ -8,7 +8,6 @@ from telegram.ext import Application, CallbackQueryHandler, CommandHandler, Cont
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 
-# Baca Database dari folder data/
 def load_data():
     with open('data/ayat.json', 'r') as f:
         return json.load(f)
