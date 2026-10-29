@@ -1,107 +1,180 @@
-# V-Quran Bot 2026 Edition
+# V-Quran Bot 2026
 
-Bot Telegram yang menghadirkan ayat-ayat Al-Qur'an secara interaktif dengan tema pilihan yang relevan untuk kebutuhan harian: kabar gembira, azab, nasehat, ketenangan, sabar, dan doa.
+<div align="center">
 
-Selamat datang di repositori `v-quran-bot` — sebuah proyek Python sederhana yang menggabungkan `python-telegram-bot`, `requests`, dan API Al-Quran Cloud untuk membangun pengalaman membaca ayat yang lebih hidup di Telegram.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram-Bot-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?style=for-the-badge)
+![Data](https://img.shields.io/badge/Data-JSON-FFB703?style=for-the-badge)
 
-## ✨ Fitur utama
+</div>
 
-- Bot Telegram interaktif berbasis inline keyboard
-- Kategori ayat yang mudah dipilih:
-  - Kabar Gembira
-  - Peringatan Azab
-  - Nasehat Akhlak
-  - Ketenangan Hati
-  - Sabar & Ujian
-  - Doa Pilihan
-- Mengambil teks Arab dan terjemahan Indonesia dari API Al-Quran Cloud
-- Data ayat dikelola dalam format JSON untuk kemudahan update dan ekspansi
-- Siap di-deploy di platform seperti Render
+<p align="center">
+  <b>Bot Telegram interaktif untuk membagikan ayat Al-Qur'an dalam tema yang relevan dengan kehidupan sehari-hari.</b>
+</p>
 
-## 🧠 Struktur proyek
+## Overview
+
+V-Quran Bot adalah bot Telegram sederhana yang menyediakan ayat-ayat pilihan berdasarkan kategori seperti:
+
+- Kabar Gembira
+- Peringatan Azab
+- Nasehat Akhlak
+- Ketenangan Hati
+- Sabar & Ujian
+- Doa Pilihan
+
+Bot ini mengambil teks Arab dan terjemahan Indonesia dari API Al-Quran Cloud dan menampilkannya secara ringkas ke pengguna melalui Telegram.
+
+## Why this project?
+
+Proyek ini dibuat untuk:
+
+- membagikan ayat yang relevan dengan situasi harian
+- mempermudah akses ke ayat secara interaktif di Telegram
+- menjadi contoh proyek Python yang ringan, mudah dipelajari, dan mudah dikembangkan
+- menyediakan basis data ayat yang mudah diupdate melalui `data/ayat.json`
+
+## Features
+
+- Inline keyboard interaktif di Telegram
+- Pilihan kategori ayat yang jelas dan mudah diakses
+- Teks Arab dari sumber resmi Al-Quran Cloud
+- Terjemahan Indonesia yang ditampilkan bersama ayat
+- Data ayat dikelola dalam format JSON
+- Siap deploy di Render, Railway, atau platform Python lainnya
+- Struktur kode sederhana untuk modifikasi dan ekspansi
+
+## Project structure
 
 ```text
 v-quran-bot/
-├── app.py                 # entry point bot Telegram
+├── app.py                 # Lokasi utama logika bot Telegram
 ├── data/
-│   └── ayat.json          # database ayat per kategori
-├── Procfile               # konfigurasi proses untuk deployment
-├── render.yaml            # konfigurasi Render
-├── requirements.txt       # dependensi Python
-├── README.md              # dokumentasi proyek
-└── .gitignore             # file yang diabaikan Git
+│   └── ayat.json          # Database ayat per kategori
+├── Procfile               # Command proses deployment
+├── render.yaml            # Konfigurasi Render
+├── requirements.txt       # Dependensi Python
+├── README.md              # Dokumentasi proyek
+├── .gitignore             # File yang diabaikan Git
+└── LICENSE                # (opsional jika nanti ditambahkan)
 ```
 
-## 📦 Teknologi yang dipakai
+## Screenshots
+
+> Screenshot preview akan ditambahkan di sini saat project sudah memiliki tampilan visual yang lebih matang.
+
+### Bot preview mockup
+
+```text
+[ /start ]
+
+✨ SELAMAT DATANG ✨
+Database Al-Qur'an terhubung via folder /data.
+Pilih kategori amunisi di bawah ini:
+
+[✨ Kabar Gembira]   [🔥 Peringatan Azab]
+[🌿 Nasehat Akhlak]  [🤍 Ketenangan Hati]
+[💪 Sabar & Ujian]   [🤲 Doa Pilihan]
+```
+
+```text
+✨ KABAR GEMBIRA ✨
+[teks arab ayat]
+
+Artinya:
+[terjemahan Indonesia]
+
+📍 (QS. Al-Baqarah ayat 25)
+```
+
+## Tech stack
 
 - Python 3
 - python-telegram-bot
 - requests
-- JSON untuk database lokal
-- Al-Quran Cloud API untuk mengambil ayat dan terjemahan
+- JSON
+- Al-Quran Cloud API
 
-## 🚀 Cara menjalankan lokal
+## Local setup
 
-1. Clone repositori:
+### 1) Clone repository
 
 ```bash
 git clone https://github.com/muslim-hacker-division/v-quran-bot.git
 cd v-quran-bot
 ```
 
-2. Buat virtual environment:
+### 2) Create virtual environment
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate   # Linux/macOS
-# atau
-.venv\Scripts\activate      # Windows
 ```
 
-3. Install dependencies:
+Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3) Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Siapkan token Telegram:
+### 4) Set Telegram token
 
 ```bash
-export TELEGRAM_TOKEN="TOKEN_ANDA_DISINI"
+export TELEGRAM_TOKEN="YOUR_TELEGRAM_TOKEN"
 ```
 
-5. Jalankan bot:
+Windows PowerShell:
+
+```powershell
+$env:TELEGRAM_TOKEN="YOUR_TELEGRAM_TOKEN"
+```
+
+### 5) Run the bot
 
 ```bash
 python app.py
 ```
 
-## 🗂️ Format data ayat
+## Data format
 
-File `data/ayat.json` berisi pasangan surah dan nomor ayat dalam format berikut:
+File `data/ayat.json` berisi daftar surah dan nomor ayat berdasarkan kategori.
 
 ```json
 {
-  "kabar_gembira": [[2, 25], [3, 133]],
-  "azab": [[7, 40], [22, 19]],
-  "nasehat": [[31, 13], [49, 10]],
-  "ketenangan": [[13, 28], [2, 186]],
-  "sabar": [[2, 153], [3, 200]],
-  "doa": [[2, 201], [20, 25]]
+  "kabar_gembira": [[2, 25], [3, 133], [9, 21]],
+  "azab": [[7, 40], [22, 19], [40, 70]],
+  "nasehat": [[31, 13], [49, 10], [17, 23]],
+  "ketenangan": [[13, 28], [2, 186], [94, 5]],
+  "sabar": [[2, 153], [2, 155], [3, 200]],
+  "doa": [[2, 201], [3, 8], [20, 25]]
 }
 ```
 
-Setiap item berisi:
-- nomor surah
-- nomor ayat
+Setiap item adalah pasangan:
 
-Bot akan memilih ayat acak dari kategori tertentu, lalu mengambil teks Arab dan terjemahan Indonesia dari API Al-Quran Cloud.
+- [surah, ayat]
 
-## 🌍 Deployment ke Render
+Contoh:
 
-Repo ini sudah dilengkapi dengan file `render.yaml` dan `Procfile` untuk deploy ke Render.
+- `[2, 25]` = Surah Al-Baqarah ayat 25
 
-Konfigurasi yang dipakai:
+## Deployment
+
+Repo ini sudah dilengkapi dengan `render.yaml` dan `Procfile` untuk deployment ke Render.
+
+### Render configuration
 
 ```yaml
 services:
@@ -113,51 +186,43 @@ services:
     startCommand: python app.py
 ```
 
-Pastikan variabel environment berikut tersedia di dashboard Render:
+Pastikan variabel environment di Render sudah diisi:
 
 ```bash
 TELEGRAM_TOKEN=your_token_here
 ```
 
-## 🧪 Contoh alur bot
+## Bot flow
 
 1. User mengirim `/start`
-2. Bot menampilkan keyboard kategori ayat
-3. User memilih kategori
-4. Bot mengambil ayat acak dari data JSON
+2. Bot menampilkan keyboard kategori
+3. User memilih kategori ayat
+4. Bot mengambil ayat acak dari `data/ayat.json`
 5. Bot menampilkan:
    - teks Arab
    - terjemahan Indonesia
    - nama surah dan nomor ayat
 
-## 📌 Catatan pengembangan
+## Contribution
 
-Proyek ini dibuat dengan prinsip sederhana dan mudah dikembangkan:
+Kontribusi sangat terbuka. Anda bisa:
 
-- kumpulan ayat terstruktur dalam JSON
-- logika bot tetap terpisah dengan data
-- proses deploy cepat dan ringan
-- mudah ditambahkan kategori baru atau data ayat baru
-
-## 🛠️ Kontribusi
-
-Kontribusi sangat terbuka. Anda dapat:
-
-- menambah data ayat pada `data/ayat.json`
+- menambah data ayat baru pada `data/ayat.json`
 - menambahkan kategori baru
-- memperbaiki tampilan pesan bot
-- memperbarui desain pengalaman pengguna
+- memperbaiki pesan bot
+- meningkatkan pengalaman user interface
+- menambahkan fitur notifikasi atau schedule ayat harian
 
-## 📜 Lisensi
+## Notes
 
-Proyek ini dibuat untuk kebutuhan edukasi dan pengembangan komunitas. Gunakan dengan bijak dan tetap menghormati sumber serta konten Al-Qur'an.
+Proyek ini dibuat untuk kebutuhan pembelajaran, pengembangan, dan nilai edukatif. Gunakan dengan bijak dan tetap menghormati konteks keagamaan serta sumber referensi yang digunakan.
 
-## 🚀 Status proyek
+## Status
 
-Status: Aktif untuk pengembangan dan deployment dasar
-
-Terima kasih telah menggunakan dan mengembangkan `v-quran-bot`.
+Status: Active development / ready for deployment
 
 ---
 
-"Bersama ayat-ayat yang menenangkan, jadikan setiap hari lebih tenang, lebih sadar, dan lebih dekat pada kebaikan."
+<p align="center">
+  <b>"Semoga setiap ayat yang dibagikan menjadi sumber keberkahan, ketenangan, dan refleksi hati."</b>
+</p>
